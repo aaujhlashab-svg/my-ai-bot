@@ -1,8 +1,8 @@
 import streamlit as st
 import google.generativeai as genai
 
-# Yahan apni API Key daalein
-genai.configure(api_key="AQ.Ab8RN6I8xt5YfI600qRGz5PylSdrDx6ALZpHxza0eJIJkjZwHg")
+# Secrets se key utha raha hai
+genai.configure(api_key=st.secrets["AQ.Ab8RN6I8xt5YfI600qRGz5PylSdrDx6ALZpHxza0eJIJkjZwHg"])
 
 st.title("Mera AI Chatbot")
 
@@ -22,6 +22,7 @@ if prompt := st.chat_input("Mujhse kuch bhi poocho..."):
         st.markdown(prompt)
 
     # Gemini se jawab lena
+    genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
     model = genai.GenerativeModel('gemini-pro')
     response = model.generate_content(prompt)
     
