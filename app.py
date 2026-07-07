@@ -2,8 +2,7 @@ import streamlit as st
 import google.generativeai as genai
 
 # Secrets se key utha raha hai
-genai.configure(api_key=st.secrets["AQ.Ab8RN6I8xt5YfI600qRGz5PylSdrDx6ALZpHxza0eJIJkjZwHg"])
-
+genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 st.title("Mera AI Chatbot")
 
 # Chat history ko maintain karne ke liye
